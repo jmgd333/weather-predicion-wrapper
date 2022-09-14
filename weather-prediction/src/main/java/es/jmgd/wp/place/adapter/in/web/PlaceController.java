@@ -1,7 +1,6 @@
 package es.jmgd.wp.place.adapter.in.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,10 +17,9 @@ public class PlaceController {
 	@Autowired
 	private RegisterPlaceUseCase registerPlaceUseCase;
 
-	@PostMapping("/register")
-	public ResponseEntity<Void> registerPlace(@RequestBody Place place) {
-		registerPlaceUseCase.registerPlace(place);
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+	@PostMapping
+	public ResponseEntity<Boolean> registerPlace(@RequestBody Place place) {
+		return registerPlaceUseCase.registerPlace(place);
 	}
 
 }
