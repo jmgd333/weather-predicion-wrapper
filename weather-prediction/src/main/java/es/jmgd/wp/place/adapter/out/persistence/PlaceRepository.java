@@ -1,8 +1,8 @@
 package es.jmgd.wp.place.adapter.out.persistence;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Component
-public class PlaceRepository {
+public interface PlaceRepository extends MongoRepository<PlaceEntity, String> {
+	boolean existsByPlaceName(String placeName);
 
 }

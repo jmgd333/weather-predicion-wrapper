@@ -2,18 +2,9 @@ package es.jmgd.wp.place.domain;
 
 public class Place {
 
-	private String placeId;
 	private String latitude;
 	private String longitude;
 	private String placeName;
-
-	public String getPlaceId() {
-		return placeId;
-	}
-
-	public void setPlaceId(String placeId) {
-		this.placeId = placeId;
-	}
 
 	public String getLatitude() {
 		return latitude;
@@ -39,9 +30,8 @@ public class Place {
 		this.placeName = placeName;
 	}
 
-	public Place(String placeId, String latitude, String longitude, String placeName) {
+	public Place(String latitude, String longitude, String placeName) {
 		super();
-		this.placeId = placeId;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.placeName = placeName;
