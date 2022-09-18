@@ -1,7 +1,6 @@
 package es.jmgd.wp.place.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +17,8 @@ public class RegisterPlaceService implements RegisterPlaceUseCase {
 	@Override
 	public ResponseEntity<Boolean> registerPlace(Place place) {
 		if (savePlacePort.savePlace(place))
-			return new ResponseEntity<Boolean>(HttpStatus.CREATED);
+			return ResponseEntity.ok(true);
 		else
-			return new ResponseEntity<Boolean>(HttpStatus.ALREADY_REPORTED);
+			return ResponseEntity.ok(false);
 	}
-
 }
