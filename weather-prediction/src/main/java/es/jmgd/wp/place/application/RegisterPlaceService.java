@@ -20,13 +20,9 @@ public class RegisterPlaceService implements RegisterPlaceUseCase {
 
 	@Override
 	public ResponseEntity<Boolean> registerPlace(Place place) {
-		if (savePlacePort.savePlace(place)) {
-			if (openWeatherApiPort.isValidPlace(place.getPlaceName()))
-				return ResponseEntity.ok(true);
-			else
-				return ResponseEntity.ok(false);
-		} else {
+		if (savePlacePort.savePlace(openWeatherApiPort.getPlace(place.getPlaceName())))
+			return ResponseEntity.ok(true);
+		else
 			return ResponseEntity.ok(false);
-		}
 	}
 }
