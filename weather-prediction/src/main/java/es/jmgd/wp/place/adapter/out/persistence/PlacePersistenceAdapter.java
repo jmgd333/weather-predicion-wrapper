@@ -14,7 +14,7 @@ public class PlacePersistenceAdapter implements SavePlacePort {
 
 	@Override
 	public boolean savePlace(Place place) {
-		if (placeRepository.existsByPlaceName(place.getPlaceName())) {
+		if (place == null || placeRepository.existsByPlaceName(place.getPlaceName())) {
 			return false;
 		} else {
 			try {
