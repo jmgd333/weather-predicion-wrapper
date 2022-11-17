@@ -10,6 +10,7 @@ public class WeatherPredictionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WeatherPredictionApplication.class, args);
+		//Test
 	}
 
 }
